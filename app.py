@@ -103,30 +103,30 @@ with col8:
 
 
 with col9:
-    BT = st.number_input("Body temperature", 30.0, 45.0, value=None)
+    BT = st.number_input("Body temperature(C)", 30.0, 45.0, value=None)
 
 
 # ---------- ROW 4 ----------
 col10, col11, col12 = st.columns(3)
 
 with col10:
-    SBP = st.number_input("Systolic Blood Pressure", 50, 200, value=None)
+    SBP = st.number_input("Systolic Blood Pressure(mmHg)", 50, 200, value=None)
 
 with col11:
-    DBP = st.number_input("Diastolic Blood Pressure", 30, 150, value=None)
+    DBP = st.number_input("Diastolic Blood Pressure(mmHg)", 30, 150, value=None)
 
 with col12:
-    Saturation = st.number_input("O2 Saturation", 50, 100, value=None)
+    Saturation = st.number_input("O2 Saturation(%)", 50, 100, value=None)
 
 
 # ---------- ROW 5 ----------
 col13, col14, col15 = st.columns(3)
 
 with col13:
-    HR = st.number_input("Heart rate", 30, 200, value=None)
+    HR = st.number_input("Heart rate(bpm)", 30, 200, value=None)
 
 with col14:
-    RR = st.number_input("Respiration rate", 5, 50, value=None)
+    RR = st.number_input("Respiration rate(bpm)", 5, 50, value=None)
 with col15:
     KTAS_RN = st.number_input("Current KTAS Level", 1, 5, value=None)
 
