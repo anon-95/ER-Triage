@@ -173,5 +173,25 @@ if st.button("Calculate"):
         text_vec
     ])
 
-    prediction = model.predict(combined)[0]
-    st.success(f"AI KTAS Level: {prediction}")
+    fatal_levels = []
+
+    if pd.notnull(Mental) and Mental == 3:
+        fatal_levels.append(1)
+    if pd.notnull(SBP) and SBP < 80:
+        fatal_levels.append(1)
+    if pd.notnull(Saturation) and Saturation < 85:
+        fatal_levels.append(1)  
+    if pd.notnull(HR) and (HR < 40 or HR > 150):
+        fatal_levels.append(2)
+    if pd.notnull(RR) and (RR < 8 or RR > 35):
+        fatal_levels.append(2)
+    if pd.notnull(BT) and (BT < 32 or BT > 40):
+        fatal_levels.append(2)
+    
+    fatal_level = min(fatal_levels) if fatal_levels else None
+    
+    if fatal_level is not None:
+        st.error(f"⚠️ Critical Condition Detected → KTAS Level: {fatal_level}")
+    else:
+        prediction = model.predict(combined)[0]
+        st.success(f"AI KTAS Level: {prediction}")
